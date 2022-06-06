@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 const placesRoutes = require('./routes/places-routes');
 const usersRoutes = require('./routes/users-routes');
 const HttpError = require('./models/http-error');
+const PORT = process.env.PORT || 5000 ;
 
 const app = express();
 
@@ -53,7 +54,7 @@ mongoose
   )
   .then(() => {
     console.log("connected to mongo db");
-    app.listen(process.env.PORT || 5000);
+    app.listen(PORT);
   })
   .catch(err => {
     console.log(err);
